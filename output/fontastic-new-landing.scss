@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+/* fontastic-new-landing */
+@font-face {
+  font-family: "fontastic-new-landing";
+  src:url("#{$icons-path}/fontastic-new-landing.eot");
+  src:url("#{$icons-path}/fontastic-new-landing.eot?#iefix") format("embedded-opentype"),
+    url("#{$icons-path}/fontastic-new-landing.woff") format("woff"),
+    url("#{$icons-path}/fontastic-new-landing.ttf") format("truetype"),
+    url("#{$icons-path}/fontastic-new-landing.svg#fontastic-new-landing") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "fontastic-new-landing" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "fontastic-new-landing" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-twitter:before {
+  content: "a";
+}
+.icon-gplus:before {
+  content: "b";
+}
+.icon-facebook:before {
+  content: "c";
+}
+.icon-menu:before {
+  content: "d";
+}
+.icon-revolution:before {
+  content: "e";
+}
+.icon-anchor-point-2:before {
+  content: "f";
+}
+.icon-anchor-point-1:before {
+  content: "g";
+}
+.icon-layers:before {
+  content: "h";
+}
+.icon-vector:before {
+  content: "i";
+}
+.icon-award-3:before {
+  content: "j";
+}
+.icon-flag-6:before {
+  content: "k";
+}
+.icon-flag-2:before {
+  content: "l";
+}
+.icon-star-1:before {
+  content: "m";
+}
+.icon-contacts-2:before {
+  content: "n";
+}
+.icon-cloud-upload:before {
+  content: "o";
+}
+.icon-folder-1:before {
+  content: "p";
+}
+.icon-add-1:before {
+  content: "q";
+}
+.icon-check-circle-2:before {
+  content: "r";
+}
+.icon-hourglass-1:before {
+  content: "s";
+}
+.icon-timer:before {
+  content: "t";
+}
+.icon-chart-up:before {
+  content: "u";
+}
+.icon-pulse:before {
+  content: "v";
+}
+.icon-window-graph-2:before {
+  content: "w";
+}
+.icon-beaker-1:before {
+  content: "x";
+}
+.icon-pulse-graph-2:before {
+  content: "y";
+}
+.icon-preview-2:before {
+  content: "z";
+}
+.icon-cittadinosymbols-webfont:before {
+  content: "A";
+}

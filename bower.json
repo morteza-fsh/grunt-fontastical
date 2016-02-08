@@ -1,0 +1,17 @@
+{
+    "name": "grunt-fontastical",
+    "version": "1.0.0",
+    "authors": [
+        "Averta <info@averta.net>"
+    ],
+    "description": "A grunt task which fetchs and parses icon fonts to json from fontastic.me",
+    "main": "Gruntfile.js",
+    "moduleType": [],
+    "keywords": [],
+    "license": "MIT",
+    "homepage": "www.averta.net",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+    ]
+}
