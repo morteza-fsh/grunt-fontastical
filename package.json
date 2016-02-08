@@ -1,5 +1,5 @@
 {
-  "name": "grunt-fontastical-json",
+  "name": "grunt-fontastical",
   "title": "Gerunt Fontastical",
   "version": "1.0.0",
   "description": "A grunt task which fetchs and parses icon fonts to json from fontastic.me",
