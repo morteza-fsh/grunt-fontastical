@@ -73,7 +73,7 @@ module.exports = function( grunt ) {
          * @param  {String} type
          * @param  {String} uri
          */
-        var writeFile = function( content, type, uri ) {
+        var writeFile = function( content, type, uri, binary ) {
 
             var path;
 
@@ -89,7 +89,7 @@ module.exports = function( grunt ) {
                     break;
             }
 
-            grunt.file.write( path, content );
+            grunt.file.write( path, content , { encoding: binary ? 'binary' : 'utf8' } );
             doneCheck();
         };
 
