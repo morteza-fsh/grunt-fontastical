@@ -101,7 +101,7 @@ module.exports = function( grunt ) {
         var downloadFonts = function( fonts ) {
             fonts.forEach( function( font ) {
                 download( font, true, function( data ) {
-                    writeFile( data, 'font', font );
+                    writeFile( data, 'font', font, true );
                 });
             });
         };
