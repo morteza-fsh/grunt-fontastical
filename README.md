@@ -27,10 +27,11 @@ grunt.initConfig({
     fontastical: {
         fontasticIcons: {
             options: {
-                fontKey : '[Font/User id here]', // Font id
-                fontsDir: 'output', // Export fonts destination
-                scssDir : 'output', // Export SASS destination
-                jsonDir : 'output'  // Export JSON destination
+                fontKey        : '[Font/User id here]', // Font id
+                fontsDir       : 'output',              // Export fonts destination
+                scssDir        : 'output',              // Export SASS destination
+                scssUnderscore : true,                  // Whether insert _ before scss file
+                jsonDir        : 'output',              // Export JSON destination
             }
         }
     },
