@@ -24,8 +24,9 @@ module.exports = function( grunt ) {
         var done = this.async(),
             startTime = Date.now(),
             options = this.options( {
-                host: 'file.myfontastic.com',
-                sassVar: 'icons-path'
+                host           : 'file.myfontastic.com',
+                sassVar        : 'icons-path',
+                scssUnderscore : true
             });
 
         /**
@@ -85,7 +86,7 @@ module.exports = function( grunt ) {
                     path = options.jsonDir + '/' + fontName + '.json';
                     break;
                 case 'scss':
-                    path = options.scssDir + '/' + fontName + '.scss';
+                    path = options.scssDir + '/' + ( options.scssUnderscore ? '_' : '' ) + fontName + '.scss';
                     break;
             }
 
