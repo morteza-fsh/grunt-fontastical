@@ -3,7 +3,7 @@
   "title": "Gerunt Fontastical",
   "version": "1.3.0",
   "description": "A grunt task which fetchs and parses icon fonts to json from fontastic.me",
-  "homepage": "https://github.com/averta-lab/grunt-fontastical",
+  "homepage": "https://github.com/morteza-fsh/grunt-fontastical",
   "license": "MIT",
   "author": "Averta <info@averta.net> (www.averta.net)",
   "private": false,
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/averta-lab/grunt-fontastical.git"
+    "url": "git+ssh://git@github.com/morteza-fsh/grunt-fontastical.git"
   },
   "keywords": [
     "grunt",
     "fontastic"
   ],
   "bugs": {
-    "url": "https://github.com/averta-lab/grunt-fontastical/issues"
+    "url": "https://github.com/morteza-fsh/grunt-fontastical/issues"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
