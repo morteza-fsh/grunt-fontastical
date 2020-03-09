@@ -28,6 +28,7 @@ grunt.initConfig({
         fontasticIcons: {
             options: {
                 fontKey        : '[Font/User id here]', // Font id
+                local          : '[Path to the styles.css]', // (Optional) you can use this option to load the data from local directory instead of fontastic.me site
                 fontsDir       : 'output',              // Export fonts destination
                 scssDir        : 'output',              // Export SASS destination
                 scssUnderscore : true,                  // Whether insert _ before scss file
