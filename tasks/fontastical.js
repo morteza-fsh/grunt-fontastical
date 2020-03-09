@@ -1,8 +1,8 @@
 /**
  * Grunt Fontastical
- * https://github.com/averta-ltd/grunt-fontastical
+ * https://github.com/morteza-fsh/grunt-fontastical
  *
- * Copyright © 2016 averta
+ * Copyright © 2020 averta
  * Licensed under the MIT license.
  *
  */
@@ -12,6 +12,7 @@
 module.exports = function( grunt ) {
 
     var request       = require( 'request' ),
+        fs            = require( 'fs' ),
         fontFilesRx   = /http.*\.\w{3,4}/g,
         fontFamilyRx  = /(font-family:)\s?"(.*)"/,
         iconsRx       = /(\.\w+-)(.*):before\s?{\n\s*content:\s*"(\\?.*)";/g,
@@ -25,6 +26,7 @@ module.exports = function( grunt ) {
             startTime = Date.now(),
             options = this.options( {
                 host           : 'file.myfontastic.com',
+                local          : '',
                 sassVar        : 'icons-path',
                 scssUnderscore : true,
                 ssl            : false,
@@ -151,9 +153,11 @@ module.exports = function( grunt ) {
          * converts the css to sass
          * @param  {String} cssContent
          */
-        var cssToSass = function ( cssContent ) {
+        var cssToSass = function ( cssContent, relative ) {
             cssContent = cssContent.replace( /http.*\./g, '#{$' + options.sassVar + '}/' + fontName + '.' );
-
+            if ( relative ) {
+                cssContent = cssContent.replace( /fonts\/.*\./g, '#{$' + options.sassVar + '}/' + fontName + '.' );
+            }
             // replace svg id
             cssContent = cssContent.replace( /.svg#\d+/g, '.svg#' + fontName );
 
@@ -161,37 +165,64 @@ module.exports = function( grunt ) {
             doneCheck();
         };
 
-        /* ------------------------------------------------------------------------------ */
+        var remoteTask = function() {
+            /**
+             * Generates the font css URL
+            */
+            var getURI = ( function() {
+                return 'http'+ (options.ssl? 's': '') +'://' + options.host + '/' + options.fontKey + '/' + 'icons.css';
+            })();
 
-        /**
-         * Generates the font css URL
-        */
-        var getURI = ( function() {
-            return 'http'+ (options.ssl? 's': '') +'://' + options.host + '/' + options.fontKey + '/' + 'icons.css';
-        })();
+            // start
+            download( getURI, false, function( fontData ) {
 
-        // start
-        download( getURI, false, function( fontData ) {
+                // read the font family, this will be used for naming the font files.
+                fontName = fontData.match( fontFamilyRx )[2];
 
+                // read fonts
+                fonts = fontData.match( fontFilesRx );
+
+                // set done stack, 2 is for json and sass file.
+                doneStacks = fonts.length + 2;
+
+                // start downloading fonts
+                if (options.downloadFonts) {
+                    downloadFonts( fonts.slice(1) );
+                }
+
+                // generate the JSON file
+                generateJSON( fontData );
+
+                // convert the css file to sass
+                cssToSass( fontData );
+
+            });
+        };
+
+        var localTask = function() {
+            const fontData = fs.readFileSync(options.local).toString();
             // read the font family, this will be used for naming the font files.
             fontName = fontData.match( fontFamilyRx )[2];
 
             // read fonts
             fonts = fontData.match( fontFilesRx );
 
-            // set done stack, 2 is for json and sass file.
-            doneStacks = fonts.length + 2;
-
-            // start downloading fonts
-            downloadFonts( fonts.slice(1) );
+            doneStacks = 2;
 
             // generate the JSON file
             generateJSON( fontData );
 
             // convert the css file to sass
-            cssToSass( fontData );
+            cssToSass( fontData, true );
+        };
 
-        });
+        /* ------------------------------------------------------------------------------ */
+        // run the proper task
+        if ( options.local ) {
+            localTask();
+        } else {
+            remoteTask();
+        }
         /* ------------------------------------------------------------------------------ */
     });
 };

@@ -26,7 +26,8 @@ module.exports = function(grunt) {
         fontastical: {
             fontasticIcons: {
                 options: {
-                    fontKey : 'VYpoyvDYq2fpUYp8pHhiU4', // Font id
+                    // fontKey : 'MuWSFn2DPwrqoHb22EPyjV', // Font id
+                    local: './auxin-front/styles.css',
                     fontsDir: 'output', // Export fonts destination
                     scssDir : 'output', // Export SASS destination
                     jsonDir : 'output',  // Export JSON destination
