@@ -1,7 +1,7 @@
 {
   "name": "grunt-fontastical",
   "title": "Gerunt Fontastical",
-  "version": "1.1.1",
+  "version": "1.3.0",
   "description": "A grunt task which fetchs and parses icon fonts to json from fontastic.me",
   "homepage": "https://github.com/averta-lab/grunt-fontastical",
   "license": "MIT",
