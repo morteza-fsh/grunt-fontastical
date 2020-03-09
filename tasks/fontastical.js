@@ -26,7 +26,8 @@ module.exports = function( grunt ) {
             options = this.options( {
                 host           : 'file.myfontastic.com',
                 sassVar        : 'icons-path',
-                scssUnderscore : true
+                scssUnderscore : true,
+                ssl            : false,
             });
 
         /**
@@ -47,7 +48,7 @@ module.exports = function( grunt ) {
         var download = function ( uri, binary, callback ) {
             // the request header
             var requestData = {
-                uri     : uri,
+                uri     : options.ssl ? uri : uri.replace(/https/g, 'http'),
                 gzip    : true,
                 headers : {
                     'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.97 Safari/537.36'
@@ -166,7 +167,7 @@ module.exports = function( grunt ) {
          * Generates the font css URL
         */
         var getURI = ( function() {
-            return 'https://' + options.host + '/' + options.fontKey + '/' + 'icons.css';
+            return 'http'+ (options.ssl? 's': '') +'://' + options.host + '/' + options.fontKey + '/' + 'icons.css';
         })();
 
         // start

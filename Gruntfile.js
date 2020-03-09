@@ -29,7 +29,7 @@ module.exports = function(grunt) {
                     fontKey : 'VYpoyvDYq2fpUYp8pHhiU4', // Font id
                     fontsDir: 'output', // Export fonts destination
                     scssDir : 'output', // Export SASS destination
-                    jsonDir : 'output'  // Export JSON destination
+                    jsonDir : 'output',  // Export JSON destination
                 }
             }
         }
